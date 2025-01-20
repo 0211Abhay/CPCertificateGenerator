@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Certificate Generator</h1>
+        <form action="./generate.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="eventName">Event Name:</label>
+                <input type="text" name="eventName" id="eventName" placeholder="Enter event name" required>
+            </div>
+            <div class="form-group">
+                <label for="eventDate">Event Date:</label>
+                <input type="date" name="eventDate" id="eventDate" required>
+            </div>
+            <div class="form-group file-upload">
+                <input type="text" id="file-name" class="file-name" value="None" disabled>
+                <label for="excelFile" class="file-label">Choose File</label>
+                <input type="file" name="excelFile" id="excelFile" accept=".xls,.xlsx" required>
+            </div>
+            <button type="submit">Generate Certificates</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('excelFile').addEventListener('change', function() {
+            const fileName = this.files.length > 0 ? this.files[0].name : 'None';
+            document.getElementById('file-name').value = fileName;
+        });
+    </script>
+</body>
+</html>
