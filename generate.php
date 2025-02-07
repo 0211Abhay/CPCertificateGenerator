@@ -81,7 +81,7 @@ function generateCertificate($name, $semester, $eventName, $eventDate, $template
     $dateY = 1230; // Adjust as needed
     $dateBoundingBox = imagettfbbox($fontSizeDate, 0, $fontPath, $eventDate);
     $dateWidth = $dateBoundingBox[2] - $dateBoundingBox[0];
-    $dateX = (($imageWidth - $dateWidth) / 2)+25;
+    $dateX = (($imageWidth - $dateWidth) / 2)+33;
     imagettftext($image, $fontSizeDate, 0, $dateX, $dateY, $textColor, $fontPath, $eventDate);
 
     $outputFilePath = "./Certificates/{$name}_certificate.jpg";
